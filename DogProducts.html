@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pawsome Pets - 🐶 Products</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Pixelify+Sans:wght@400..700&display=swap');
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #3f9b0b;
+        }
+        
+        nav {
+            font-family: "DynaPuff", system-ui;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f6f1e9;
+            padding: 10px 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .logo {
+            color: #000;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+        
+        .nav-links a {
+            color: #000000;
+            font-size: 25px;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        .nav-links a:hover {
+            background-color: #ddd;
+            color: white;
+        }
+
+        .dropdown {
+            display: none; 
+            position: relative;
+        }
+        
+        .dropbtn {
+            font-family: "DynaPuff", system-ui;
+            font-optical-sizing: auto;
+            font-size: 25px;
+            background-color: #f6f1e9;
+            color: black;
+            padding: 14px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f6f1e9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .categories {
+            display: flex;
+            flex-direction: column;
+            margin: 20px auto;
+            width: 100%;
+            max-width: 90%;
+        }
+
+        .category {
+            background-color: #f6f1e9;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .category h2 {
+            font-size: 24px;
+            margin: 10px 0;
+            font-family: "DynaPuff", system-ui;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .product {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+            height:350px;
+            width: 90%;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+
+        .product img {
+            width: 55%;
+            height: 55%;
+            border-radius: 5px;
+        }
+
+        .product h3 {
+            font-family: "DynaPuff", system-ui;
+            font-optical-sizing: auto;
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .product p {
+            font-family: "DynaPuff", system-ui;
+            font-optical-sizing: auto;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .add-to-cart {
+            font-family: "DynaPuff", system-ui;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .add-to-cart:hover {
+            background-color: #218838;
+        }
+        
+        .buyNow{
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        
+        .buyNow:hover {
+            background-color: #218838;
+        }
+        
+        footer {
+            background-color: #f6f1e9;
+            color: #000;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; 
+            }
+            .dropdown {
+                display: block;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .dropdown {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <div class="logo">PAWsome Pets</div>
+        <div class="nav-links">
+            <a href="Homepage.html">HOME</a>
+            <a href="Shop.html">SHOP</a>
+            <a href="About.html">ABOUT</a>
+            <a href="Contact.html">CONTACT US</a>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Menu</button>
+            <div class="dropdown-content">
+                <a href="Homepage.html">HOME</a>
+                <a href="Shop.html">SHOP</a>
+                <a href="About.html">ABOUT</a>
+                <a href="Contact.html">CONTACT US</a>
+            </div>
+        </div>
+        <div>
+            <button class="buyNow" onclick="buyNow()">Buy Now</button>
+            <span id="cart-count">0</span> items in cart
+        </div>
+    </nav>
+    
+    <div class="categories">
+        <div class="category">
+           <h2>Foods</h2>
+            <div class="products">
+                <div class="product">
+                    <img src="https://people.com/thmb/u-_gywr6uxfP8O9LRGZT0Y9u-k0=/fit-in/1500x1000/filters:no_upscale():max_bytes(150000):strip_icc()/purina-one-natural-smartblend-lamb--rice-formula-dry-dog-food-179de51d58dc4516844ea49194aa09fa.jpg" alt="Premium Dog Food">
+                    <h3>Purina One Dog Food</h3>
+                    <p>High-quality nutrition for your furry friend.</p>
+                    <p>P 1,500.00</p>
+                    <button class="add-to-cart" onclick="addToCart('Purina One Dog Food')">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src ="https://people.com/thmb/5attgGHfVNsSFcYxADA-2wjt-8g=/fit-in/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/kirkland-signature-adult-formula-lamb-rice-and-vegetable-dog-food-a98e335b73c24218b798024c03209a26.jpg" alt="Grain-Free Dog Food">
+                    <h3>Kirkland Signature Dog Food</h3>
+                    <p>Healthy and delicious meals for your dog.</p>
+                    <p>P 2,500.00</p>
+                    <button class="add-to-cart" onclick="addToCart('Kirkland Signature Dog Food')">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="https://people.com/thmb/D0NmSgurrSJIRfXzrQxy7nq_Jn8=/fit-in/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/royal-canin-size-health-nutrition-small-adult-formula-dog-dry-food-08228010686f4a698a1dc6029c1d6478.jpg" alt="Organic Dog Food">
+                    <h3>Royal Canin Dog Food</h3>
+                    <p>Natural and wholesome food for your dog.</p>
+                    <p>P 2,000.00</p>
+                    <button class="add-to-cart" onclick="addToCart('Royal Canin Dog Food')">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="https://people.com/thmb/6b0MFI_Eqd4Ngqxg0NRYVCA-jnM=/fit-in/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/fromm-large-breed-adult-gold-premium-dry-dog-food---dry-adult-dog-food-for-large-breeds-2e963f7c1ade471f8ab8d026c6ce356c.jpg" alt="Limited Ingredient Dog Food">
+                    <h3>Fromm Family Dog Food</h3>
+                    <p>Simple and effective nutrition for your dog.</p>
+                    <p>P 3,500.00</p>
+                    <button class="add-to-cart" onclick="addToCart('Fromm Family Dog Food')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>Baths and Hygiene</h2>
+            <div class="products">
+                <div class="product">
+                    <img src="https://nuestapets.com/cdn/shop/products/AmazonGallery1-Shampoo16ozBottleOrganic-90_533x.jpg?v=1665766264" alt="Dog Shampoo">
+                    <h3>Nuesta Pets Shampoo</h3>
+                    <p>Clean and fresh coat for your dog.</p>
+                    <p>P 500.00</p>
+                    <button class="add-to-cart" onclick="addToCart('Nuesta Pets Shampoo')">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="https://iodogs.com/cdn/shop/products/JAS_VAN_COND_16_OZ_FRONT_320x320.jpg?v=1657813910" alt="Dog Conditioner">
+                    <h3>Silky Oatmeal Conditioner</h3>
+                    <p>Soft and silky coat for your dog.</p>
+                    <p>P 650.00</p>
+                    <button class="add-to-cart" onclick="addToCart('Silky Oatmeal Conditioner')">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="https://people.com/thmb/aajyQ-dvy1_QTpsHrwbk4iRyl34=/fit-in/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/swihauk-self-cleaning-slicker-brush-692c9372f07044679e675fae76384840.jpg" alt="Dog Brush">
+                    <h3>Swihauk Dog Brush</h3>
+                    <p>Easy and effective grooming for your dog.</p>
+                    <p>P 450.00</p>
+                    <button class="add-to-cart" onclick="addToCart('Swihauk Dog Brush')">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="https://www.thesprucepets.com/thmb/t15v1lJ9t0CGz6ZApsKJOGmVIPc=/fit-in/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/vets-best-enzymatic-dog-toothpaste-210bb608ef0243ceaf5b1a65f9bf9f4c.jpg" alt="Dog Toothbrush">
+                    <h3>Vet's Best Enzymatic Toothpaste</h3>
+                    <p>Healthy and clean teeth for your dog.</p>
+                    <p>P 800.00</p>
+                    <button class="add-to-cart" onclick="addToCart('Vet's Best Enzymatic Toothpaste')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>Other Products</h2>
+            <div class="products">
+                <div class="product">
+                    <img src="https://www.thesprucepets.com/thmb/ghgZusmckDgmufvW8C_-rdyuumg=/fit-in/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/kong-cozie-marvin-the-moose-plush-dog-toy-1a3883c33b79422fbfa8d991ef750416.jpg" alt="Dog Toy">
+                    <h3>Cozie Marvin Moose</h3>
+                    <p>Fun and entertaining playtime for your dog.</p>
+                    <p>P 800.00</p>
+                    <button class="add-to-cart" onclick="addToCart('Cozie Marvin Moose')">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="https://www.petwarehouse.ph/14713-home_default/zeebed-skull-2-0-pet-bed.jpg" alt="Dog Bed">
+                    <h3>Zee Bed Skull Bed</h3>
+                    <p>Comfortable and cozy resting place for your dog.</p>
+                    <p>P 1,000.00</p>
+                    <button class="add-to-cart" onclick="addToCart('Zee Bed Skull Bed')">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="https://www.thesprucepets.com/thmb/bMjjSY-ApG6S8EMgwJAriMBqx2g=/fit-in/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Flexi-ed131e2f9f354cc9a191e648b921685b.jpeg" alt="Dog Leash">
+                    <h3 style ="font-size: 16px;">Flexi Neon Rectractable Dog Leash</h3>
+                    <p>Safe and secure walks for you and your dog.</p>
+                    <p>P 950.00</p>
+                    <button class="add-to-cart" onclick="addToCart('Flexi Neon Rectractable Dog Leash')">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="https://www.zigly.com/media/catalog/product/cache/c64dae22d3d7308ba9e0f4ad3d9bc2b6/z/l/zl_spoiled_dog_t-shirt.jpg" alt="Dog Clothes">
+                    <h3>Spoiled Dog T-Shirt</h3>
+                    <p>Stylish and comfortable clothing for your dog.</p>
+                    <p>P 850.00</p>
+                    <button class="add-to-cart" onclick="addToCart('Dog Clothes')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 PAWsome Pets. All rights reserved.
+    </footer>
+
+    <script>
+        let cart = [];
+
+        function addToCart(item) {
+            // Add item to the cart
+            cart.push(item);
+            updateCartCount();
+        }
+
+        function updateCartCount() {
+            const cartCount = document.getElementById('cart-count');
+            cartCount.innerText = cart.length;
+        }
+
+        function buyNow() {
+            if (cart.length === 0) {
+                alert("Your cart is empty. Please add items before buying.");
+            } else {
+                window.location.href = "ThankYou.html";
+            }
+        }
+    </script>
+</body>
+</html>
